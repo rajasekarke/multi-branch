@@ -29,8 +29,5 @@ pipeline {
         steps{
           script{
             sh 'docker build -t kerajasekar/multi:v1 .'
-            //sh 'docker images'
-          }
-        }
-      }
- }
+            //sh 'docker images'      
+    }
