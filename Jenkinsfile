@@ -30,4 +30,8 @@ pipeline {
           script{
             sh 'docker build -t kerajasekar/multi:v1 .'
             //sh 'docker images'      
+           }
+         }
+      }
     }
+}
