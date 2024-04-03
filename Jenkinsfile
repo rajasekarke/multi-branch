@@ -28,7 +28,7 @@ pipeline {
       stage('Docker Build') {
         steps{
           script{
-            sh 'docker build -t kerajasekar/multi:v1 .'
+            sh 'docker build -t kerajasekar/multi:v3 .'
             //sh 'docker images'      
            }
          }
