@@ -33,15 +33,3 @@ pipeline {
           }
         }
       }
-}
-//       stage('Deploy on k8s') {    
-//         steps {
-//           script{
-//             withKubeCredentials(kubectlCredentials: [[ credentialsId: 'kubernetes', namespace: 'ms' ]]) {
-//                 sh 'kubectl apply -f kube.yaml'
-//             }
-//           }
-//         }
-//       }
-//     }
-// }
