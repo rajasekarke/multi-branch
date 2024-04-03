@@ -1,5 +1,5 @@
 FROM node:latest
-#MAINATAINER NARESh
+#MAINATAINER RAJASEKAR
 #RUN echo " Try to build my application"
 COPY . /var/www
 WORKDIR /var/www
