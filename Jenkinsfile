@@ -34,7 +34,6 @@ pipeline {
         }
       }
 }
-
 //       stage('Deploy on k8s') {    
 //         steps {
 //           script{
