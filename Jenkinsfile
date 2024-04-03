@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        maven 'maven3' 
+        maven 'maven' 
     }
     stages {
       stage ('Build') {
         steps {
           script{
-            def mvnHome = tool name: 'maven3', type: 'maven'
+            def mvnHome = tool name: 'maven', type: 'maven'
             sh "${mvnHome}/bin/mvn clean package"
               sh 'mv target/onlinebookstore*.war target/mybook.war'
               // sh "mvn clean package"
@@ -18,7 +18,7 @@ pipeline {
       // stage ('SonarQube'){
       //   steps{
       //     script{
-      //       def mvnHome =  tool name: 'maven3', type: 'maven'
+      //       def mvnHome =  tool name: 'maven', type: 'maven'
       //       withSonarQubeEnv('sonar-pro') {
       //         sh "${mvnHome}/bin/mvn sonar:sonar"
       //       }
@@ -28,7 +28,7 @@ pipeline {
       stage('Docker Build') {
         steps{
           script{
-            sh 'docker build -t naresh2603/multi:v3 .'
+            sh 'docker build -t kerajasekar/multi:v1 .'
             //sh 'docker images'
           }
         }
@@ -37,9 +37,9 @@ pipeline {
         steps{
           script{
             withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-              sh "docker login -u naresh2603 -p ${dockerPassword}"
-              sh 'docker push naresh2603/multi:v1'
-              sh 'docker rmi naresh2603/multi:v1'
+              sh "docker login -u kerajasekar -p ${dockerPassword}"
+              sh 'docker push kerajasekar/multi:v1'
+              sh 'docker rmi kerajasekar/multi:v1'
             }
           }
         }
