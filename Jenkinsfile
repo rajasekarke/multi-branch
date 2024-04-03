@@ -33,18 +33,6 @@ pipeline {
           }
         }
       }
-      stage('Docker push'){
-        steps{
-          script{
-              withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]){
-              sh "docker login -u kerajasekar -p ${dockerPassword}"
-              sh 'docker push kerajasekar/multi:v1'
-              sh 'docker rmi kerajasekar/multi:v1'
-            }
-          }
-        }
-      }
-    }
 }
 
 //       stage('Deploy on k8s') {    
