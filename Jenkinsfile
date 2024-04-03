@@ -36,7 +36,7 @@ pipeline {
       stage('Docker push'){
         steps{
           script{
-            withCredentials([string(credentialsId: 'docker', variable: 'dockerPassword')]) {
+              withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
               sh "docker login -u kerajasekar -p ${dockerPassword}"
               sh 'docker push kerajasekar/multi:v1'
               sh 'docker rmi kerajasekar/multi:v1'
