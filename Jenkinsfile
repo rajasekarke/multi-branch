@@ -9,9 +9,9 @@ pipeline {
           script{
             def mvnHome = tool name: 'maven', type: 'maven'
             sh "${mvnHome}/bin/mvn clean package"
-              sh 'mv target/onlinebookstore*.war target/newbook.war'
+              sh 'mv target/onlinebookstore*.war target/newapp.war'
               // sh "mvn clean package"
-              // sh "mv target/*.war target/newbook.war"
+              // sh "mv target/*.war target/newapp.war"
           }
         }
       }
